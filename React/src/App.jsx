@@ -8,7 +8,11 @@ import TagBox from 'devextreme-react/tag-box';
 
 import { data, assignees, places } from './data';
 
+const groups = ['assigneeId'];
+const views = ['day'];
+
 const App = () => {
+    const [currentDate, setCurrentDate] = useState(new Date(2021, 3, 26))
     const [schedulerAssignees, setSchedulerAssignees] = useState(assignees);
 
     const onTagBoxInit = useCallback((e) => {
@@ -35,12 +39,12 @@ const App = () => {
             <Scheduler
                 timeZone='America/Los_Angeles'
                 dataSource={data}
-                views={['day']}
+                views={views}
                 currentView='day'
-                currentDate={new Date(2021, 3, 26)}
+                currentDate={currentDate}
                 startDayHour={9}
                 endDayHour={19}
-                groups={['assigneeId']}
+                groups={groups}
                 resources={[
                     {
                         fieldExpr: 'assigneeId',

@@ -20,7 +20,7 @@
         :height="600"
         :start-day-hour="9"
         :end-day-hour="19"
-        :groups="['assigneeId']"
+        :groups="groups"
     >
     </DxScheduler>
   </div>
@@ -46,7 +46,7 @@ export default {
       dataSource: data,
       assignees: assignees,
       schedulerAssignees: assignees,
-      tooltipItems: [],
+      groups: ['assigneeId'],
     };
   },
   methods: {
