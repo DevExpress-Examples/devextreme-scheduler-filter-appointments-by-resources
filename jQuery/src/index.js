@@ -2,7 +2,7 @@ $(() => {
     const tagBox = $('#tag-box').dxTagBox({
         dataSource: assignees,
         valueExpr: 'id',
-        displayExpr: "text",
+        displayExpr: 'text',
         searchEnabled: true,
         showSelectionControls: true,
         value: assignees.map(item => item.id),
