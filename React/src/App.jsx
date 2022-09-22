@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css';
@@ -14,6 +14,22 @@ const views = ['day'];
 const App = () => {
     const [currentDate, setCurrentDate] = useState(new Date(2021, 3, 26))
     const [schedulerAssignees, setSchedulerAssignees] = useState(assignees);
+    const [resources, setResources] = useState([]);
+
+    useEffect(() => {
+        setResources([
+            {
+                fieldExpr: 'assigneeId',
+                dataSource: schedulerAssignees,
+                label: 'Assignee',
+            }, {
+                fieldExpr: 'placeId',
+                dataSource: places,
+                label: 'Place',
+                useColorAsDefault: true,
+            }
+        ]);
+    }, [schedulerAssignees]);
 
     const onTagBoxInit = useCallback((e) => {
         e.component.option('value', assignees.map(item => item.id))
@@ -45,17 +61,7 @@ const App = () => {
                 startDayHour={9}
                 endDayHour={19}
                 groups={groups}
-                resources={[
-                    {
-                        fieldExpr: 'assigneeId',
-                        dataSource: schedulerAssignees,
-                        label: 'Assignee',
-                    }, {
-                        fieldExpr: 'placeId',
-                        dataSource: places,
-                        label: 'Place',
-                        useColorAsDefault: true,
-                    }]}
+                resources={resources}
                 height={600}
             >
             </Scheduler>
