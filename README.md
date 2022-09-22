@@ -5,3 +5,5 @@
 
 # scheduler-how-to-filter-by-resources
 This example demonstrates how to filter scheduler's appointments by resource navigator
+
+![demo resource filtering](https://user-images.githubusercontent.com/54763823/191814502-e06fd07e-d041-486f-adff-c6c5e9cbba6f.gif)
