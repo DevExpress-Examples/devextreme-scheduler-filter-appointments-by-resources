@@ -54,7 +54,7 @@ export default {
       e.component.option('value', assignees.map(item => item.id))
     },
     onTagBoxValueChanged: function (e) {
-      this.schedulerAssignees = (e.component.option('selectedItems'));
+      this.schedulerAssignees = e.component.option('selectedItems');
     }
   },
   computed: {
