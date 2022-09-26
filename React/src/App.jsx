@@ -11,8 +11,8 @@ import { data, assignees, places } from './data';
 const groups = ['assigneeId'];
 const views = ['day'];
 
-const currentDate = new Date(2021, 3, 26)
-const defaultAssignees = assignees.map(item => item.id);
+const currentDate = new Date('2021-04-26T10:00:00.000Z')
+const defaultSelectedAssignees = assignees.map(item => item.id);
 
 const App = () => {
     const [resources, setResources] = useState([
@@ -50,7 +50,7 @@ const App = () => {
             <TagBox
                 className='resources'
                 dataSource={assignees}
-                defaultValue={defaultAssignees}
+                defaultValue={defaultSelectedAssignees}
                 valueExpr='id'
                 displayExpr='text'
                 searchEnabled={true}

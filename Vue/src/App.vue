@@ -3,11 +3,11 @@
     <DxTagBox
         class="resources"
         :data-source="assignees"
+        :value="defaultSelectedAssignees"
         value-expr="id"
         display-expr="text"
         :search-enabled="true"
         :show-selection-controls="true"
-        :on-initialized="onTagBoxInit"
         :on-value-changed="onTagBoxValueChanged"
     >
     </DxTagBox>
@@ -16,7 +16,7 @@
         current-view="day"
         :data-source="dataSource"
         :current-date="currentDate"
-        :resources="schedulerResources"
+        :resources="resources"
         :height="600"
         :start-day-hour="9"
         :end-day-hour="19"
@@ -42,38 +42,41 @@ export default {
   },
   data() {
     return {
-      currentDate: new Date(2021, 3, 26),
+      currentDate: new Date('2021-04-26T10:00:00.000Z'),
       dataSource: data,
       assignees: assignees,
-      schedulerAssignees: assignees,
+      defaultSelectedAssignees: assignees.map(item => item.id),
       groups: ['assigneeId'],
+      resources: [
+        {
+          fieldExpr: 'assigneeId',
+          dataSource: assignees,
+          label: 'Assignee',
+        }, {
+          fieldExpr: 'placeId',
+          dataSource: places,
+          label: 'Place',
+          useColorAsDefault: true,
+        }
+      ]
     };
   },
   methods: {
-    onTagBoxInit: function (e) {
-      e.component.option('value', assignees.map(item => item.id))
-    },
     onTagBoxValueChanged: function (e) {
-      this.schedulerAssignees = e.component.option('selectedItems');
+      const selectedValues = assignees.filter((item) => e.value.includes(item.id));
+      this.resources = [
+        {
+          fieldExpr: 'assigneeId',
+          dataSource: selectedValues,
+          label: 'Assignee',
+        }, {
+          fieldExpr: 'placeId',
+          dataSource: places,
+          label: 'Place',
+          useColorAsDefault: true,
+        }
+      ];
     }
   },
-  computed: {
-    schedulerResources: {
-      get() {
-        return [
-          {
-            fieldExpr: 'assigneeId',
-            dataSource: this.schedulerAssignees,
-            label: 'Assignee',
-          }, {
-            fieldExpr: 'placeId',
-            dataSource: places,
-            label: 'Place',
-            useColorAsDefault: true,
-          }
-        ]
-      },
-    }
-  }
 };
 </script>

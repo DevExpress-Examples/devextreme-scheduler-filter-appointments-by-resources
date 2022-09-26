@@ -1,17 +1,15 @@
-<div id="container">
-  <div>
-    <dx-tag-box
-      class="resources"
-      [dataSource]="assignees"
-      valueExpr="id"
-      displayExpr="text"
-      [searchEnabled]="true"
-      [showSelectionControls]="true"
-      (onInitialized)="onTagBoxInit($event)"
-      (onValueChanged)="onTagBoxValueChanged($event)"
-    >
-    </dx-tag-box>
-  </div>
+<div>
+  <dx-tag-box
+    class="resources"
+    [dataSource]="assignees"
+    [value]="defaultSelectedAssignees"
+    valueExpr="id"
+    displayExpr="text"
+    [searchEnabled]="true"
+    [showSelectionControls]="true"
+    (onValueChanged)="onTagBoxValueChanged($event)"
+  >
+  </dx-tag-box>
   <dx-scheduler
     timeZone="America/Los_Angeles"
     currentView="day"
@@ -21,7 +19,7 @@
     [startDayHour]="9"
     [endDayHour]="19"
     [groups]="groups"
-    [resources]="schedulerResources"
+    [resources]="resources"
   >
   </dx-scheduler>
 </div>
