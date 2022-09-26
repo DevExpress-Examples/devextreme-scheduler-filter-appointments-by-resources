@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css';
@@ -11,16 +11,30 @@ import { data, assignees, places } from './data';
 const groups = ['assigneeId'];
 const views = ['day'];
 
-const App = () => {
-    const [currentDate, setCurrentDate] = useState(new Date(2021, 3, 26))
-    const [schedulerAssignees, setSchedulerAssignees] = useState(assignees);
-    const [resources, setResources] = useState([]);
+const currentDate = new Date(2021, 3, 26)
+const defaultAssignees = assignees.map(item => item.id);
 
-    useEffect(() => {
+const App = () => {
+    const [resources, setResources] = useState([
+        {
+            fieldExpr: 'assigneeId',
+            dataSource: assignees,
+            label: 'Assignee',
+        }, {
+            fieldExpr: 'placeId',
+            dataSource: places,
+            label: 'Place',
+            useColorAsDefault: true,
+        }
+    ]);
+
+
+    const onTagBoxValueChanged = useCallback((e) => {
+        const selectedValues = assignees.filter((item) => e.value.includes(item.id));
         setResources([
             {
                 fieldExpr: 'assigneeId',
-                dataSource: schedulerAssignees,
+                dataSource: selectedValues,
                 label: 'Assignee',
             }, {
                 fieldExpr: 'placeId',
@@ -29,14 +43,6 @@ const App = () => {
                 useColorAsDefault: true,
             }
         ]);
-    }, [schedulerAssignees]);
-
-    const onTagBoxInit = useCallback((e) => {
-        e.component.option('value', assignees.map(item => item.id))
-    }, []);
-
-    const onTagBoxValueChanged = useCallback((e) => {
-        setSchedulerAssignees(e.component.option('selectedItems'));
     }, []);
 
     return (
@@ -44,11 +50,11 @@ const App = () => {
             <TagBox
                 className='resources'
                 dataSource={assignees}
+                defaultValue={defaultAssignees}
                 valueExpr='id'
                 displayExpr='text'
                 searchEnabled={true}
                 showSelectionControls={true}
-                onInitialized={onTagBoxInit}
                 onValueChanged={onTagBoxValueChanged}
             >
             </TagBox>
