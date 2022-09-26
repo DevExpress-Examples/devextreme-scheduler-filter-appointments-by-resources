@@ -2,11 +2,11 @@
   <dx-tag-box
     class="resources"
     [dataSource]="assignees"
+    [value]="defaultSelectedAssignees"
     valueExpr="id"
     displayExpr="text"
     [searchEnabled]="true"
     [showSelectionControls]="true"
-    (onInitialized)="onTagBoxInit($event)"
     (onValueChanged)="onTagBoxValueChanged($event)"
   >
   </dx-tag-box>
@@ -19,7 +19,7 @@
     [startDayHour]="9"
     [endDayHour]="19"
     [groups]="groups"
-    [resources]="schedulerResources"
+    [resources]="resources"
   >
   </dx-scheduler>
 </div>

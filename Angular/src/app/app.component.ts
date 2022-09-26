@@ -21,17 +21,16 @@ export class AppComponent {
 
   assignees = assignees;
 
-  schedulerAssignees = assignees;
+  defaultSelectedAssignees = assignees.map(item => item.id);
 
   views = ['day'];
 
   groups = ['assigneeId'];
 
-  get schedulerResources() {
-    return [
+  resources = [
       {
         fieldExpr: 'assigneeId',
-        dataSource: this.schedulerAssignees,
+        dataSource: assignees,
         label: 'Assignee',
       }, {
         fieldExpr: 'placeId',
@@ -39,15 +38,22 @@ export class AppComponent {
         label: 'Place',
         useColorAsDefault: true,
       }
-    ]
-  }
-
-  onTagBoxInit(e: OptionChangedEvent) {
-    e.component.option('value', assignees.map(item => item.id))
-  }
+    ];
 
   onTagBoxValueChanged(e: OptionChangedEvent) {
-    this.schedulerAssignees = e.component.option('selectedItems') as IResource[];
+    const selectedValues = assignees.filter((item) => e.value.includes(item.id));
+    this.resources = [
+      {
+        fieldExpr: 'assigneeId',
+        dataSource: selectedValues,
+        label: 'Assignee',
+      }, {
+        fieldExpr: 'placeId',
+        dataSource: places,
+        label: 'Place',
+        useColorAsDefault: true,
+      }
+    ];
   }
 }
 
