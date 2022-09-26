@@ -11,7 +11,7 @@ import { data, assignees, places } from './data';
 const groups = ['assigneeId'];
 const views = ['day'];
 
-const currentDate = new Date(2021, 3, 26)
+const currentDate = new Date('2021-04-26T10:00:00.000Z')
 const defaultAssignees = assignees.map(item => item.id);
 
 const App = () => {

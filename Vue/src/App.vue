@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      currentDate: new Date(2021, 3, 26),
+      currentDate: new Date('2021-04-26T10:00:00.000Z'),
       dataSource: data,
       assignees: assignees,
       schedulerAssignees: assignees,

@@ -17,7 +17,7 @@ if (!/localhost/.test(document.location.host)) {
 export class AppComponent {
   dataSource = data;
 
-  currentDate: Date = new Date(2021, 3, 26);
+  currentDate: Date = new Date('2021-04-26T10:00:00.000Z');
 
   assignees = assignees;
 
