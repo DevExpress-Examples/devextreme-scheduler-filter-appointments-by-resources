@@ -39,7 +39,7 @@
 
 <script>
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+import 'devextreme/dist/css/dx.light.css';
 import { DxScheduler, DxResource } from 'devextreme-vue/scheduler';
 import { DxTagBox } from 'devextreme-vue/tag-box';
 import { data, assignees as allAssignees, places } from './data.js';
