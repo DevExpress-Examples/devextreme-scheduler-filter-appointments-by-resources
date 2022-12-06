@@ -35,19 +35,3 @@ export class AppComponent {
     this.assignees = allAssignees.filter((item) => e.value.includes(item.id));
   }
 }
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    DxSchedulerModule,
-    DxTagBoxModule
-  ],
-  bootstrap: [AppComponent],
-})
-export class AppModule {
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule);
