@@ -8,3 +8,21 @@
 This example demonstrates how to use the resource navigator to filter Scheduler's appointments
 
 ![demo resource filtering](https://user-images.githubusercontent.com/54763823/191814502-e06fd07e-d041-486f-adff-c6c5e9cbba6f.gif)
+
+## Files to Review
+
+- **Angular**
+    - [app.component.html](Angular/src/app/app.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
+- **jQuery**
+    - [index.js](jQuery/src/index.js)
+- **React**
+    - [App.js](React/src/App.jsx)
+- **Vue**
+    - [App.vue](Vue/src/App.vue)
+
+## Documentation
+
+- [Getting Started with Scheduler](https://js.devexpress.com/Documentation/Guide/UI_Components/Scheduler/Getting_Started_with_Scheduler/)
+
+- [Scheduler - API Reference](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxScheduler/)
