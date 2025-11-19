@@ -1,0 +1,37 @@
+<div>
+  <dx-tag-box
+    class="resources"
+    [dataSource]="allAssignees"
+    [value]="defaultSelectedAssignees"
+    valueExpr="id"
+    displayExpr="text"
+    [searchEnabled]="true"
+    [showSelectionControls]="true"
+    (onValueChanged)="onTagBoxValueChanged($event)"
+  >
+  </dx-tag-box>
+  <dx-scheduler
+    timeZone="America/Los_Angeles"
+    currentView="day"
+    [dataSource]="dataSource"
+    [views]="views"
+    [currentDate]="currentDate"
+    [startDayHour]="9"
+    [endDayHour]="19"
+    [groups]="groups"
+  >
+    <dxi-resource
+      fieldExpr="assigneeId"
+      label="Assignee"
+      [dataSource]="assignees"
+    >
+    </dxi-resource>
+    <dxi-resource
+      fieldExpr="placeId"
+      label="Place"
+      [dataSource]="places"
+      [useColorAsDefault]="true"
+    >
+    </dxi-resource>
+  </dx-scheduler>
+</div>
