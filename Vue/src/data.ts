@@ -1,4 +1,12 @@
-export const data = [
+import type { DxSchedulerTypes } from 'devextreme-vue/scheduler';
+
+export interface ResourceItem {
+  text: string;
+  id: number;
+  color: string;
+}
+
+export const data: DxSchedulerTypes.Appointment[] = [
   {
     text: 'Website Re-Design Plan',
     assigneeId: 4,
@@ -88,7 +96,7 @@ export const data = [
   },
 ];
 
-export const assignees = [
+export const assignees: ResourceItem[] = [
   {
     text: 'Samantha Bright',
     id: 1,
@@ -108,25 +116,25 @@ export const assignees = [
   },
 ];
 
-export const places = [
+export const places: ResourceItem[] = [
   {
     text: 'home',
     id: 1,
-    color: '#3bb825'
+    color: '#3bb825',
   },
   {
     text: 'office',
     id: 2,
-    color: '#ba1c36'
+    color: '#ba1c36',
   },
   {
     text: 'remote',
     id: 3,
-    color: '#1e55e3'
+    color: '#1e55e3',
   },
   {
     text: 'client',
     id: 4,
-    color: '#e327c7'
+    color: '#e327c7',
   },
-]
+];
