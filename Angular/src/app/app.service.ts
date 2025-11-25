@@ -1,26 +1,13 @@
-export interface IResource {
+import { Injectable } from '@angular/core';
+import { type DxSchedulerTypes } from 'devextreme-angular/ui/scheduler';
+
+export interface Resource {
   text: string;
-
   id: number;
-
   color: string;
 }
 
-export interface IData {
-  text: string;
-
-  assigneeId: number;
-
-  placeId: number;
-
-  startDate: Date;
-
-  endDate: Date;
-
-  allDay?: boolean;
-}
-
-export const assignees: IResource[] = [
+const assigneesData: Resource[] = [
   {
     text: 'Samantha Bright',
     id: 1,
@@ -40,30 +27,30 @@ export const assignees: IResource[] = [
   },
 ];
 
-export const places: IResource[] = [
+const placesData: Resource[] = [
   {
     text: 'home',
     id: 1,
-    color: '#3bb825'
+    color: '#3bb825',
   },
   {
     text: 'office',
     id: 2,
-    color: '#ba1c36'
+    color: '#ba1c36',
   },
   {
     text: 'remote',
     id: 3,
-    color: '#1e55e3'
+    color: '#1e55e3',
   },
   {
     text: 'client',
     id: 4,
-    color: '#e327c7'
+    color: '#e327c7',
   },
-]
+];
 
-export const data: IData[] = [
+const appointmentsData: DxSchedulerTypes.Appointment[] = [
   {
     text: 'Website Re-Design Plan',
     assigneeId: 4,
@@ -152,3 +139,20 @@ export const data: IData[] = [
     endDate: new Date('2021-04-26T21:00:00.000Z'),
   },
 ];
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AppService {
+  getAppointments(): DxSchedulerTypes.Appointment[] {
+    return appointmentsData;
+  }
+
+  getAssignees(): Resource[] {
+    return assigneesData;
+  }
+
+  getPlaces(): Resource[] {
+    return placesData;
+  }
+}
