@@ -7,7 +7,7 @@
 # Scheduler for DevExtreme - How to filter appointments by resources
 This example demonstrates how to use the resource navigator to filter Scheduler's appointments
 
-![demo resource filtering](https://user-images.githubusercontent.com/54763823/191814502-e06fd07e-d041-486f-adff-c6c5e9cbba6f.gif)
+![demo resource filtering](images/scheduler.gif)
 
 ## Files to Review
 
