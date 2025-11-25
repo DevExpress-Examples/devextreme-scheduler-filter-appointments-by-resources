@@ -18,9 +18,9 @@ This example demonstrates how to use the resource navigator to filter Scheduler'
 - **jQuery**
     - [index.js](jQuery/src/index.js)
 - **React**
-    - [App.js](React/src/App.jsx)
+    - [App.tsx](React/src/App.tsx)
 - **Vue**
-    - [App.vue](Vue/src/App.vue)
+    - [Home.vue](Vue/src/components/HomeContent.vue)
 
 ## Documentation
 
