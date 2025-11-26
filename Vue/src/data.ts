@@ -1,69 +1,12 @@
-export interface IResource {
+import type { DxSchedulerTypes } from 'devextreme-vue/scheduler';
+
+export interface ResourceItem {
   text: string;
-
   id: number;
-
   color: string;
 }
 
-export interface IData {
-  text: string;
-
-  assigneeId: number;
-
-  placeId: number;
-
-  startDate: Date;
-
-  endDate: Date;
-
-  allDay?: boolean;
-}
-
-export const assignees: IResource[] = [
-  {
-    text: 'Samantha Bright',
-    id: 1,
-    color: '#727bd2',
-  }, {
-    text: 'John Heart',
-    id: 2,
-    color: '#32c9ed',
-  }, {
-    text: 'Todd Hoffman',
-    id: 3,
-    color: '#2a7ee4',
-  }, {
-    text: 'Sandra Johnson',
-    id: 4,
-    color: '#7b49d3',
-  },
-];
-
-export const places: IResource[] = [
-  {
-    text: 'home',
-    id: 1,
-    color: '#3bb825'
-  },
-  {
-    text: 'office',
-    id: 2,
-    color: '#ba1c36'
-  },
-  {
-    text: 'remote',
-    id: 3,
-    color: '#1e55e3'
-  },
-  {
-    text: 'client',
-    id: 4,
-    color: '#e327c7'
-  },
-]
-
-export const data: IData[] = [
+export const data: DxSchedulerTypes.Appointment[] = [
   {
     text: 'Website Re-Design Plan',
     assigneeId: 4,
@@ -150,5 +93,48 @@ export const data: IData[] = [
     placeId: 1,
     startDate: new Date('2021-04-26T19:20:00.000Z'),
     endDate: new Date('2021-04-26T21:00:00.000Z'),
+  },
+];
+
+export const assignees: ResourceItem[] = [
+  {
+    text: 'Samantha Bright',
+    id: 1,
+    color: '#727bd2',
+  }, {
+    text: 'John Heart',
+    id: 2,
+    color: '#32c9ed',
+  }, {
+    text: 'Todd Hoffman',
+    id: 3,
+    color: '#2a7ee4',
+  }, {
+    text: 'Sandra Johnson',
+    id: 4,
+    color: '#7b49d3',
+  },
+];
+
+export const places: ResourceItem[] = [
+  {
+    text: 'home',
+    id: 1,
+    color: '#3bb825',
+  },
+  {
+    text: 'office',
+    id: 2,
+    color: '#ba1c36',
+  },
+  {
+    text: 'remote',
+    id: 3,
+    color: '#1e55e3',
+  },
+  {
+    text: 'client',
+    id: 4,
+    color: '#e327c7',
   },
 ];

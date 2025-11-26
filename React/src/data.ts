@@ -1,42 +1,12 @@
-$(() => {
-  const tagBox = $('#tag-box').dxTagBox({
-    dataSource: assignees,
-    valueExpr: 'id',
-    displayExpr: 'text',
-    searchEnabled: true,
-    showSelectionControls: true,
-    value: assignees.map((item) => item.id),
-    onValueChanged() {
-      scheduler.option('resources[0].dataSource', tagBox.option('selectedItems'));
-    },
-  }).addClass('resources').dxTagBox('instance');
+import type { SchedulerTypes } from 'devextreme-react/scheduler';
 
-  const scheduler = $('#scheduler').dxScheduler({
-    timeZone: 'America/Los_Angeles',
-    dataSource: data,
-    views: ['day'],
-    currentView: 'day',
-    currentDate: new Date('2021-04-26T10:00:00.000Z'),
-    startDayHour: 9,
-    endDayHour: 19,
-    groups: ['assigneeId'],
-    resources: [
-      {
-        fieldExpr: 'assigneeId',
-        allowMultiple: true,
-        dataSource: assignees,
-        label: 'Assignee',
-      }, {
-        fieldExpr: 'placeId',
-        dataSource: places,
-        label: 'Place',
-        useColorAsDefault: true,
-      }],
-    height: 600,
-  }).dxScheduler('instance');
-});
+export interface ResourceItem {
+  text: string;
+  id: number;
+  color: string;
+}
 
-const data = [
+export const data: SchedulerTypes.Appointment[] = [
   {
     text: 'Website Re-Design Plan',
     assigneeId: 4,
@@ -126,7 +96,7 @@ const data = [
   },
 ];
 
-const assignees = [
+export const assignees: ResourceItem[] = [
   {
     text: 'Samantha Bright',
     id: 1,
@@ -146,7 +116,7 @@ const assignees = [
   },
 ];
 
-const places = [
+export const places: ResourceItem[] = [
   {
     text: 'home',
     id: 1,

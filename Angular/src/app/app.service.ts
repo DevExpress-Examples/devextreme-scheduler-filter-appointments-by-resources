@@ -1,4 +1,56 @@
-export const data = [
+import { Injectable } from '@angular/core';
+import { type DxSchedulerTypes } from 'devextreme-angular/ui/scheduler';
+
+export interface Resource {
+  text: string;
+  id: number;
+  color: string;
+}
+
+const assigneesData: Resource[] = [
+  {
+    text: 'Samantha Bright',
+    id: 1,
+    color: '#727bd2',
+  }, {
+    text: 'John Heart',
+    id: 2,
+    color: '#32c9ed',
+  }, {
+    text: 'Todd Hoffman',
+    id: 3,
+    color: '#2a7ee4',
+  }, {
+    text: 'Sandra Johnson',
+    id: 4,
+    color: '#7b49d3',
+  },
+];
+
+const placesData: Resource[] = [
+  {
+    text: 'home',
+    id: 1,
+    color: '#3bb825',
+  },
+  {
+    text: 'office',
+    id: 2,
+    color: '#ba1c36',
+  },
+  {
+    text: 'remote',
+    id: 3,
+    color: '#1e55e3',
+  },
+  {
+    text: 'client',
+    id: 4,
+    color: '#e327c7',
+  },
+];
+
+const appointmentsData: DxSchedulerTypes.Appointment[] = [
   {
     text: 'Website Re-Design Plan',
     assigneeId: 4,
@@ -88,45 +140,19 @@ export const data = [
   },
 ];
 
-export const assignees = [
-  {
-    text: 'Samantha Bright',
-    id: 1,
-    color: '#727bd2',
-  }, {
-    text: 'John Heart',
-    id: 2,
-    color: '#32c9ed',
-  }, {
-    text: 'Todd Hoffman',
-    id: 3,
-    color: '#2a7ee4',
-  }, {
-    text: 'Sandra Johnson',
-    id: 4,
-    color: '#7b49d3',
-  },
-];
+@Injectable({
+  providedIn: 'root',
+})
+export class AppService {
+  getAppointments(): DxSchedulerTypes.Appointment[] {
+    return appointmentsData;
+  }
 
-export const places = [
-  {
-    text: 'home',
-    id: 1,
-    color: '#3bb825'
-  },
-  {
-    text: 'office',
-    id: 2,
-    color: '#ba1c36'
-  },
-  {
-    text: 'remote',
-    id: 3,
-    color: '#1e55e3'
-  },
-  {
-    text: 'client',
-    id: 4,
-    color: '#e327c7'
-  },
-]
+  getAssignees(): Resource[] {
+    return assigneesData;
+  }
+
+  getPlaces(): Resource[] {
+    return placesData;
+  }
+}
