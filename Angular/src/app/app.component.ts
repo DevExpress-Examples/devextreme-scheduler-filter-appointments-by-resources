@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { type DxTagBoxTypes } from 'devextreme-angular/ui/tag-box';
-import { DxSchedulerTypes } from 'devextreme-angular/ui/scheduler';
+import { DxTagBoxModule, type DxTagBoxTypes } from 'devextreme-angular/ui/tag-box';
+import { DxSchedulerModule, DxSchedulerTypes } from 'devextreme-angular/ui/scheduler';
 import { AppService, type Resource } from './app.service';
 
 @Component({
+  imports: [DxSchedulerModule, DxTagBoxModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
