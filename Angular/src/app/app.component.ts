@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { DxTagBoxModule, type DxTagBoxTypes } from 'devextreme-angular/ui/tag-box';
 import { DxSchedulerModule, DxSchedulerTypes } from 'devextreme-angular/ui/scheduler';
 import { AppService, type Resource } from './app.service';
@@ -8,6 +8,7 @@ import { AppService, type Resource } from './app.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [AppService],
 })
 export class AppComponent {
